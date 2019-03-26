@@ -1,6 +1,6 @@
 # This image provides a Python 3.6 environment you can use to run your Python
 # applications.
-FROM centos/s2i-base-centos7
+FROM quay.io/vpavlin/s2i-base-centos7:cuda
 
 EXPOSE 8080
 
