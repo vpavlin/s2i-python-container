@@ -1,6 +1,6 @@
 # This image provides a Python 3.6 environment you can use to run your Python
 # applications.
-FROM rhscl/s2i-base-rhel7:1
+FROM quay.io/vpavlin/s2i-base-ubi7:ubi
 
 EXPOSE 8080
 
