@@ -36,7 +36,7 @@ LABEL summary="$SUMMARY" \
 
 RUN INSTALL_PKGS="rh-python36 rh-python36-python-devel rh-python36-python-setuptools rh-python36-python-pip nss_wrapper \
         httpd24 httpd24-httpd-devel httpd24-mod_ssl httpd24-mod_auth_kerb httpd24-mod_ldap \
-        httpd24-mod_session atlas-devel gcc-gfortran libffi-devel libtool-ltdl enchant" && \
+        httpd24-mod_session gcc-gfortran libffi-devel libtool-ltdl enchant" && \ 
     yum install -y yum-utils && \
     prepare-yum-repositories rhel-server-rhscl-7-rpms && \
     yum -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
@@ -44,6 +44,8 @@ RUN INSTALL_PKGS="rh-python36 rh-python36-python-devel rh-python36-python-setupt
     # Remove redhat-logos (httpd dependency) to keep image size smaller.
     rpm -e --nodeps redhat-logos && \
     yum -y clean all --enablerepo='*'
+
+#atlas-devel 
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH.
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
